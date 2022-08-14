@@ -1,28 +1,39 @@
-.title a,
-.title span {
-    color: #0070f3;
+.title {
+    position: absolute;
+    display: inline-flex;
+    margin: 1rem;
+    font-size: 1rem;
+    top: 0;
+    right: 0;
+}
+
+.title li {
+    list-style-type: none;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.title a {
+    color: #707070;
     text-decoration: none;
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-    text-decoration: underline;
+.title li:nth-child(5) a {
+    color: #fff;
 }
 
-.title {
-    margin: 0;
-    line-height: 1.15;
-    font-size: 4rem;
+.title ul li a:hover {
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.title,
+/* .title,
 .description {
     text-align: center;
-}
+} */
 
-.description {
+/* .description {
     margin: 4rem 0;
     line-height: 1.5;
     font-size: 1.5rem;
-}
+} */

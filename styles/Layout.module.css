@@ -1,13 +1,16 @@
 .container {
+    position: relative;
     padding: 0 2rem;
 }
 
 .main {
     min-height: 100vh;
-    padding: 4rem 0;
+    padding: 2rem 0;
     flex: 1;
-    display: flex;
+    top: 0;
+    right: 4rem;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }

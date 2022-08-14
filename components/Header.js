@@ -3,21 +3,23 @@ import headerStyles from '../styles/Header.module.css';
 const Header = () => {
     return (
         <div>
-            <h1 className={headerStyles.title}>
-                ITEM 01
-            </h1>
-            <h1 className={headerStyles.title}>
-                ITEM 02
-            </h1>
-            <h1 className={headerStyles.title}>
-                ITEM 03
-            </h1>
-            <h1 className={headerStyles.title}>
-                ITEM 04
-            </h1>
-            <h1 className={headerStyles.title}>
-                ITEM 05
-            </h1>
+            <ul className={headerStyles.title}>
+                <li>
+                    <a>ITEM 05</a>
+                </li>
+                <li>
+                    <a>ITEM 04</a>
+                </li>
+                <li>
+                    <a>ITEM 03</a>
+                </li>
+                <li>
+                    <a>ITEM 02</a>
+                </li>
+                <li>
+                    <a>ITEM 01</a>
+                </li>
+            </ul>
         </div>
     );
 };
