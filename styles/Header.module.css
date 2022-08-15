@@ -1,24 +1,28 @@
 .title {
     position: absolute;
-    display: inline-flex;
-    margin: 1rem;
+    /* display: inline-flex; */
     font-size: 1rem;
+    margin: 0;
     top: 0;
     right: 0;
+    background: #37405A;
+    width: 100vw;
 }
 
-.title li {
+.title ul li {
+    display: inline;
     list-style-type: none;
-    padding: 1rem;
+    padding-right: 2rem;
     margin: 1rem;
+    float: right;
 }
 
-.title a {
+.title ul li a {
     color: #707070;
     text-decoration: none;
 }
 
-.title li:nth-child(5) a {
+.title li:nth-child(1) a {
     color: #fff;
 }
 
@@ -26,14 +30,3 @@
     text-decoration: none;
     cursor: pointer;
 }
-
-/* .title,
-.description {
-    text-align: center;
-} */
-
-/* .description {
-    margin: 4rem 0;
-    line-height: 1.5;
-    font-size: 1.5rem;
-} */
