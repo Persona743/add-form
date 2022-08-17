@@ -24,6 +24,7 @@
 
 .title li:nth-child(1) a {
     color: #fff;
+    border-bottom: 0.25rem solid #00FFFF;
 }
 
 .title ul li a:hover {
