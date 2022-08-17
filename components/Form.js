@@ -12,6 +12,7 @@ const Form = () => {
             <div>
                 <form action="http://localhost:3008/" method="post">
                     <h5>ADD A</h5>
+                    <br />
                     <fieldset>
                         <div className={formStyles.group}>
                             <label>A Name</label>
@@ -99,7 +100,7 @@ const Form = () => {
                         <br />
                         <br />
                         <br />
-                        <br />
+
                         <div className={formStyles.group}>
                             <button type="button">TABLE</button>
                             <button type="submit">ADD</button>
@@ -110,25 +111,26 @@ const Form = () => {
             <div>
                 <form action="http://localhost:3008/" method="post">
                     <h5>ADD B</h5>
+                    <br />
                     <fieldset>
                         <div className={formStyles.group}>
                             <label>A Name</label>
                             <input type="text" name="a-name" required />
                         </div>
                         <div className={formStyles.group}>
-                            <label>A ID</label>
+                            <label>Code</label>
+                            <input type="text" name="code" required />
+                        </div>
+                        <div className={formStyles.group}>
+                            <label>ID</label>
                             <input type="text" name="id" required />
                         </div>
                         <div className={formStyles.group}>
-                            <label>Latitude</label>
-                            <input type="text" name="latitude" required />
+                            <label>Population</label>
+                            <input type="text" name="Population" required />
                         </div>
                         <div className={formStyles.group}>
-                            <label>Longitude</label>
-                            <input type="text" name="Longitude" required />
-                        </div>
-                        <div className={formStyles.group}>
-                            <label>A type</label>
+                            <label>Type</label>
                             <select name="type">
                                 <option disabled selected value>
                                     Unknown
@@ -140,64 +142,17 @@ const Form = () => {
                                 <option value="5">ITEM 05</option>
                             </select>
                         </div>
-                        <div className={formStyles.group}>
-                            <label>A IP</label>
-                            <input
-                                type="text"
-                                name="ip"
-                                className={formStyles.seperate}
-                                required
-                            />
-                            <input
-                                type="text"
-                                name="ip"
-                                className={formStyles.seperate}
-                                required
-                            />
-                            <input
-                                type="text"
-                                name="ip"
-                                className={formStyles.seperate}
-                                required
-                            />
-                            <input
-                                type="text"
-                                name="ip"
-                                className={formStyles.seperate}
-                                required
-                            />
-                        </div>
-                        <div className={formStyles.group}>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="option"
-                                    className={formStyles.inline}
-                                />
-                                Option1
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="option"
-                                    className={formStyles.inline}
-                                />
-                                Option2
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="option"
-                                    className={formStyles.inline}
-                                />
-                                Option3
-                            </label>
-                        </div>
+
                         <br />
                         <br />
                         <br />
                         <br />
                         <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+
                         <div className={formStyles.group}>
                             <button type="button">TABLE</button>
                             <button type="submit">ADD</button>
@@ -208,28 +163,47 @@ const Form = () => {
             <div>
                 <form action="http://localhost:3008/" method="post">
                     <h5>ADD C</h5>
+                    <br />
                     <fieldset>
                         <div className={formStyles.group}>
                             <label>A Name</label>
                             <input type="text" name="a-name" required />
                         </div>
                         <div className={formStyles.group}>
-                            <label>A ID</label>
+                            <label>Code</label>
+                            <input type="text" name="code" required />
+                        </div>
+                        <div className={formStyles.group}>
+                            <label>ID</label>
                             <input type="text" name="id" required />
                         </div>
                         <div className={formStyles.group}>
-                            <label>Latitude</label>
-                            <input type="text" name="latitude" required />
+                            <label>Linked Itel</label>
+                            <input
+                                type="text"
+                                name="linked-item"
+                                placeholder="A 023"
+                                required
+                            />
                         </div>
                         <div className={formStyles.group}>
-                            <label>Longitude</label>
-                            <input type="text" name="Longitude" required />
-                        </div>
-                        <div className={formStyles.group}>
-                            <label>A type</label>
+                            <label>Country</label>
                             <select name="type">
                                 <option disabled selected value>
-                                    Unknown
+                                    Select Country
+                                </option>
+                                <option value="1">Iran</option>
+                                <option value="2">canada</option>
+                                <option value="3">Germany</option>
+                                <option value="4">Belgium</option>
+                                <option value="5">U.S</option>
+                            </select>
+                        </div>
+                        <div className={formStyles.group1}>
+                            <label>City</label>
+                            <select name="type">
+                                <option disabled selected value>
+                                    Select City
                                 </option>
                                 <option value="1">ITEM 01</option>
                                 <option value="2">ITEM 02</option>
@@ -238,64 +212,26 @@ const Form = () => {
                                 <option value="5">ITEM 05</option>
                             </select>
                         </div>
-                        <div className={formStyles.group}>
-                            <label>A IP</label>
-                            <input
-                                type="text"
-                                name="ip"
-                                className={formStyles.seperate}
-                                required
-                            />
-                            <input
-                                type="text"
-                                name="ip"
-                                className={formStyles.seperate}
-                                required
-                            />
-                            <input
-                                type="text"
-                                name="ip"
-                                className={formStyles.seperate}
-                                required
-                            />
-                            <input
-                                type="text"
-                                name="ip"
-                                className={formStyles.seperate}
-                                required
-                            />
+                        <div className={formStyles.group1}>
+                            <label>Region</label>
+                            <select name="type">
+                                <option disabled selected value>
+                                    Select Region
+                                </option>
+                                <option value="1">ITEM 01</option>
+                                <option value="2">ITEM 02</option>
+                                <option value="3">ITEM 03</option>
+                                <option value="4">ITEM 04</option>
+                                <option value="5">ITEM 05</option>
+                            </select>
                         </div>
-                        <div className={formStyles.group}>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="option"
-                                    className={formStyles.inline}
-                                />
-                                Option1
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="option"
-                                    className={formStyles.inline}
-                                />
-                                Option2
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="option"
-                                    className={formStyles.inline}
-                                />
-                                Option3
-                            </label>
-                        </div>
+
                         <br />
                         <br />
                         <br />
                         <br />
                         <br />
+
                         <div className={formStyles.group}>
                             <button type="button">TABLE</button>
                             <button type="submit">ADD</button>

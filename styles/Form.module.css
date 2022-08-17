@@ -43,11 +43,40 @@
     margin: 0 auto .125rem auto;
 }
 
+.group1 {
+    padding: 0.125rem 0 0 0.125rem;
+    margin: 0 auto .125rem auto;
+}
+
+.group1 label,
+.group1 select {
+    color: #707070;
+}
+
+.group1 select{
+    background-color: #707070;
+    opacity: 0.8;
+}
+
+.group1 input,
+.group1 select {
+    pointer-events: none;
+    display: inline-block;
+    width: 12rem;
+    height: 2.1rem;
+    padding: 0.375rem 0.75rem;
+    color: #495057;
+    border: 0.125rem solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in, box-shadow 0.15s ease-in-out;
+    text-align: center;
+}
+
 .group input,
 .group select {
     display: inline-block;
     width: 12rem;
-    height: 1.85rem;
+    height: 2.1rem;
     padding: 0.375rem 0.75rem;
     color: #495057;
     border: 0.125rem solid #ced4da;
