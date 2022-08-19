@@ -1,9 +1,10 @@
+import AddForm from '../components/AddForm';
 import Form from '../components/Form';
 
-export default function Home({form}) {
+export default function Home({ form }) {
     return (
         <div>
-            <Form form={form} />
+            <AddForm form={form} />
         </div>
     );
 }
