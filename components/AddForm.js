@@ -1,9 +1,18 @@
+import { useRouter } from 'next/router'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
+
+// import { userService, alertService } from '../services';
+
 import React, { useState } from 'react';
 import Link from 'next/dist/client/link';
 import formStyles from '../styles/Form.module.css';
 import Form from './Form';
 
-const AddForm = () => {
+const AddForm = (props) => {
+
+    //input only accepts number
     const [inputId, setInputId] = useState();
     const [inputLat, setInputLat] = useState();
     const [inputLong, setInputLong] = useState();
@@ -34,11 +43,68 @@ const AddForm = () => {
         setInputIp4(e.target.value.replace(/^\D*\.?\D*$/, ''));
     };
 
+    ///!!!
+    const user = props?.user;
+    const isAddMode = !user;
+    const router = useRouter()
+
+    //form validation
+    const validationSchema = Yup.object().shape({
+        name: Yup.string()
+            .required('Name is required'),
+        id: Yup.string()
+            .required('ID is required'),
+        latitude: Yup.string()
+            .required('Latitude is required'),
+        longitude: Yup.string()
+            .required('Longitude is invalid'),
+        type: Yup.string()
+            .required('Type is required'),
+        ip: Yup.string()
+            .required('IP is required'),
+    });
+    const formOptions = { resolver: yupResolver(validationSchema) };
+
+    // set default form values if in edit mode
+    if (!isAddMode) {
+        const { ...defaultValues } = user;
+        formOptions.defaultValues = defaultValues;
+    }
+
+    // get functions to build form with useForm() hook
+    const { register, handleSubmit, reset, formState } = useForm(formOptions);
+    const { errors } = formState;
+
+    function onSubmit(data) {
+        return isAddMode
+            ? createUser(data)
+            : updateUser(user.id, data);
+    }
+
+    function createUser(data) {
+        return userService.create(data)
+            .then(() => {
+                alertService.success('User added', { keepAfterRouteChange: true });
+                router.push('.');
+            })
+            .catch(alertService.error);
+    }
+
+    function updateUser(id, data) {
+        return userService.update(id, data)
+            .then(() => {
+                alertService.success('User updated', { keepAfterRouteChange: true });
+                router.push('..');
+            })
+            .catch(alertService.error);
+    }
+
+
     return (
         <div className={formStyles.container}>
             <div>
-                <form action="http://localhost:3008/" method="post">
-                    <h5>ADD A</h5>
+                <form action="http://localhost:3008/" method="post" onSubmit={handleSubmit(onSubmit)}>
+                    <h5>{isAddMode ? 'ADD A' : 'EDIT ADD A'}</h5>
                     <br />
                     <fieldset>
                         <div className={formStyles.group}>
