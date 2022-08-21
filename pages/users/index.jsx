@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 
-// import { Link } from '../../components/Link';
+import { NextLink } from '../../components/Link';
 import { userService } from 'services';
 import Meta from 'components/Meta';
 import Link from 'next/link';
 import tableStyles from '../../styles/Table.module.css'
 
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan, faPencil } from '@fortawesome/free-solid-svg-icons'
 
 function Index() {
     const [users, setUsers] = useState(null);
@@ -63,19 +66,18 @@ function Index() {
                                             <Link
                                                 href={`/users/edit${user.id}`}
                                             >
-                                                Edit
+                                                <FontAwesomeIcon icon={faPencil} />
                                             </Link>
-                                            <button
+                                            <a
                                                 onClick={() => deleteUser(user.id)}
-                                                className="btn btn-sm btn-danger btn-delete-user"
                                                 disabled={user.isDeleting}
                                             >
                                                 {user.isDeleting ? (
-                                                    <span className="spinner-border spinner-border-sm"></span>
+                                                    <span></span>
                                                 ) : (
-                                                    <span>Delete</span>
+                                                    <FontAwesomeIcon icon={faTrashCan} />
                                                 )}
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
                                 ))}
