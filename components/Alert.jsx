@@ -2,17 +2,9 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 
-// import { alertService, AlertType } from 'services';
+import { alertService, AlertType } from 'services';
 
-// Alert.PropTypes = {
-//     id: PropTypes.string,
-//     fade: PropTypes.bool,
-// };
-
-// Alert.defaultprops = {
-//     id: 'default-alert',
-//     fade: true,
-// };
+export { Alert };
 
 const Alert = ({ id, fade }) => {
     const router = useRouter();
@@ -119,4 +111,12 @@ const Alert = ({ id, fade }) => {
     );
 };
 
-export default Alert;
+Alert.propTypes = {
+    id: PropTypes.string,
+    fade: PropTypes.bool,
+};
+
+Alert.defaultProps = {
+    id: 'default-alert',
+    fade: true,
+};

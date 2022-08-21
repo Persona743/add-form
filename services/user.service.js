@@ -1,5 +1,5 @@
-import {task} from '../config/index'
-import { fetchWrapper } from './../helpers/fetch-wrapper';
+import { apiUrl } from 'config';
+import { fetchWrapper } from 'helpers';
 
 export const userService = {
     getAll,
@@ -9,7 +9,7 @@ export const userService = {
     delete: _delete,
 };
 
-const baseUrl = `${task}/users`;
+const baseUrl = `${apiUrl}/users`;
 
 function getAll() {
     return fetchWrapper.get(baseUrl);

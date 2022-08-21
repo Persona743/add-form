@@ -1,5 +1,5 @@
-import { AddForm } from './../../../components/AddForm';
-// import { userService } from 'services';
+import { AddForm } from 'components/users';
+import { userService } from 'services';
 
 
 export async function getServerSideProps({ params }) {

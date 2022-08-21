@@ -1,4 +1,4 @@
-import AddForm from '../components/AddForm';
+import AddForm from '../components/users/AddForm.jsx';
 
 export default function Home({ form }) {
     return (

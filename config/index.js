@@ -1,5 +1,6 @@
-const task = process.NODE_ENV !== 'production';
+const apiUrl =
+    process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3008/api'
+        : 'http://localhost:3008/api';
 
-export const server = task
-    ? 'http://localhost:3008'
-    : 'https://yourwebsite.com';
+export { apiUrl };

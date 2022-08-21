@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-let users = require('data/lists.json');
+let users = require('data/users.json');
 
 export const usersRepo = {
     getAll,
@@ -23,7 +23,7 @@ function create({ name, ida, latitude, longitude, type, ip1, ip2, ip3, ip4 }) {
 
     // validate
     if (users.find((x) => x.ida === user.ida))
-        throw `User with the ID ${user.id} already exists`;
+        throw `User with the ID ${user.ida} already exists`;
 
     // generate new user id
     user.id = users.length ? Math.max(...users.map((x) => x.id)) + 1 : 1;
@@ -51,11 +51,6 @@ function update(
     )
         throw `User with the ID ${params.ida} already exists`;
 
-    // only update password if entered
-    if (!params.password) {
-        delete params.password;
-    }
-
     // set date updated
     user.dateUpdated = new Date().toISOString();
 
@@ -74,5 +69,5 @@ function _delete(id) {
 // private helper functions
 
 function saveData() {
-    fs.writeFileSync('data/lists.json', JSON.stringify(users, null, 4));
+    fs.writeFileSync('data/users.json', JSON.stringify(users, null, 4));
 }

@@ -12,11 +12,6 @@ const Meta = ({ title, keywords, description }) => {
             <meta charSet="utf-8" />
             <link rel="icon" href="/favicon.ico" />
             <title>{title}</title>
-            {/* bootstrap cdn */}
-            {/* <link
-                href="//netdna.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-                rel="stylesheet"
-            /> */}
         </Head>
     );
 };
