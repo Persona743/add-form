@@ -8,7 +8,7 @@ import tableStyles from '../../styles/Table.module.css'
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan, faPencil } from '@fortawesome/free-solid-svg-icons'
+import { faTrashCan, faPencil, faExclamation } from '@fortawesome/free-solid-svg-icons'
 
 function Index() {
     const [users, setUsers] = useState(null);
@@ -18,14 +18,19 @@ function Index() {
     }, []);
 
     function deleteUser(id) {
-        setUsers(
-            users.map((x) => {
-                if (x.id === id) {
-                    x.isDeleting = true;
-                }
-                return x;
-            })
-        );
+        const confirmBox = window.confirm("Are you sure about deleting this item?")
+        if (confirmBox === true) {
+            setUsers(
+                users.map((x) => {
+                    if (x.id === id) {
+                        x.isDeleting = true;
+                    }
+                    return x;
+                })
+            );
+        } else {
+            return null
+        }
         userService.delete(id).then(() => {
             setUsers((users) => users.filter((x) => x.id !== id));
         });
@@ -64,10 +69,11 @@ function Index() {
                                         <td>{user.option}</td>
                                         <td style={{ whiteSpace: 'nowrap' }}>
                                             <Link
-                                                href={`/users/edit${user.id}`}
+                                                href={`/users/edit/${user.id}`}
                                             >
-                                                <FontAwesomeIcon icon={faPencil} />
+                                                <FontAwesomeIcon icon={faPencil} className={tableStyles.icon} />
                                             </Link>
+
                                             <a
                                                 onClick={() => deleteUser(user.id)}
                                                 disabled={user.isDeleting}
@@ -75,25 +81,25 @@ function Index() {
                                                 {user.isDeleting ? (
                                                     <span></span>
                                                 ) : (
-                                                    <FontAwesomeIcon icon={faTrashCan} />
+                                                    <FontAwesomeIcon icon={faTrashCan} className={tableStyles.icon1} />
                                                 )}
                                             </a>
+
                                         </td>
                                     </tr>
                                 ))}
                             {!users && (
                                 <tr>
-                                    <td colSpan="4" className="text-center">
-                                        <div className="spinner-border spinner-border-lg align-center"></div>
+                                    <td>
+                                        <div></div>
                                     </td>
                                 </tr>
                             )}
                             {users && !users.length && (
-                                <tr>
-                                    <td colSpan="4" className="text-center">
-                                        <div className="p-2">No Users To Display</div>
-                                    </td>
-                                </tr>
+                                <span>
+                                    <FontAwesomeIcon icon={faExclamation} className={tableStyles.icon2} />
+                                    NO ITEM FOUND IN THE TABLE
+                                </span>
                             )}
                         </tbody>
                     </table>

@@ -1,4 +1,4 @@
-import { usersRepo } from '../../../helpers/users-repo';
+import { usersRepo } from 'helpers';
 
 function handler(req, res) {
     switch (req.method) {

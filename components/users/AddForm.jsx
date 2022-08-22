@@ -3,10 +3,10 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
-import { userService,alertService } from 'services'
+import { userService, alertService } from 'services';
 
 import React, { useState } from 'react';
-import Link from 'next/dist/client/link';
+import Link from 'components/Link';
 import formStyles from '../../styles/Form.module.css';
 import Form from '../Form';
 
@@ -121,6 +121,7 @@ const AddForm = (props) => {
                                 pattern="[0-9]*"
                                 onInput={handleChangeId}
                                 value={inputId}
+                                minLength={2}
                                 maxLength={5}
                                 required
                             />
@@ -133,6 +134,7 @@ const AddForm = (props) => {
                                 pattern="[0-9]*"
                                 onInput={handleChangeLat}
                                 value={inputLat}
+                                minLength={2}
                                 maxLength={5}
                                 required
                             />
@@ -146,6 +148,7 @@ const AddForm = (props) => {
                                 pattern="[0-9]*"
                                 onInput={handleChangeLong}
                                 value={inputLong}
+                                minLength={2}
                                 maxLength={5}
                                 required
                             />
@@ -241,7 +244,13 @@ const AddForm = (props) => {
                             <Link href="/users">
                                 <button type="button">TABLE</button>
                             </Link>
-                            <button type="submit">ADD</button>
+                            <button
+                                type="submit"
+                                disabled={formState.isSubmitting}
+                            >
+                                {formState.isSubmitting && <span></span>}
+                                ADD
+                            </button>
                         </div>
                     </fieldset>
                 </form>

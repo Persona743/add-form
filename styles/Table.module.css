@@ -55,18 +55,43 @@
     border-bottom: 0.125rem solid rgba(255, 255, 255, 0.1);
 }
 
-.container table tbody button {
-    display: inline-block;
-    width: 4.2rem;
-    margin: 1em 1rem;
-    height: 2.5em;
-    background-color: #00FFFF;
-    color: #2C3348;
+
+.container table tbody .icon {
+    /* display: inline-block; */
+    width: 1.4rem;
+    margin: 1em 0.5rem;
+    height: 1em;
+    color: #00FFFF;
     border: none;
-    border-radius: 0.5rem;
-    min-width: 1rem;
-    font-weight: 600;
-    box-shadow: -0.25rem 0.125rem 0.75rem 0.125rem rgba(0, 0, 0, 0.2);
+    font-weight: 200;
+    font-size: 1rem;
+    opacity: 0;
+}
+
+.container table tbody .icon1 {
+    width: 1.4rem;
+    margin: 1em 0.5rem;
+    height: 1em;
+    color: #FF6904;
+    border: none;
+    font-weight: 200;
+    font-size: 1rem;
+    opacity: 0;
+}
+
+.container table tbody tr:hover .icon,
+.container table tbody tr:hover .icon1 {
+    opacity: 1;
+    transition: ease-in-out 400ms;
+    cursor: pointer;
+}
+
+.container table tbody tr:hover,
+.container table tbody tr:hover {
+    opacity: 1;
+    transition: ease-in-out 400ms;
+    cursor: pointer;
+    background: #7070709a;
 }
 
 .group {
@@ -98,4 +123,34 @@
 
 .container button:hover {
     cursor: pointer;
+}
+
+.icon2 {
+    width: 1.4rem;
+    height: 1em;
+    color: #FF6904;
+    border: none;
+    font-weight: 200;
+    font-size: 1rem;
+}
+
+.container table tbody span {
+    position: absolute;
+    inset: 0;
+    margin: 4rem;
+    color: #FF6904;
+    text-align: center
+}
+
+.deleteBox {
+    position: fixed;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #202020;
+    opacity: 0.55;
+    overflow: hidden;
+    z-index: 2;
 }
